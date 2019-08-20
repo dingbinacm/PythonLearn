@@ -47,3 +47,33 @@ def move(x, y, step, angle=0):
 
 t = move(100, 100, 60, math.pi / 6)
 print(t[0], t[1])
+"""
+默认参数
+一是必选参数在前，默认参数在后，否则Python的解释器会报错（思考一下为什么默认参数不能放在必选参数前面）；
+二是如何设置默认参数。
+当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数。
+"""
+def pow(x, n=2):
+    data = x
+    while n > 1:
+        data = data * x
+        n = n - 1
+    return data
+print(pow(9,3))
+
+def enroll(name, age=15, sex="man"):
+    print("name",name)
+    print("age",age)
+    print("sex",sex)
+
+enroll("dingbin", 53,"woman")
+# 定义默认参数要牢记一点：默认参数必须指向不变对象！
+# https://www.liaoxuefeng.com/wiki/1016959663602400/1017261630425888
+# 可变参数
+# *nums表示把nums这个list的所有元素作为可变参数传进去。这种写法相当有用，而且很常见。
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+print(calc(1, 2, 3))
