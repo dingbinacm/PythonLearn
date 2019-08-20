@@ -74,3 +74,30 @@ t = ("a", "b",["c", "d"])
 t[2][1] = "dis"
 print(t)
 
+# dict, 在其他语言中也称为map，使用键-值（key-value）存储
+d = {"Michael": 95, "BOb": 100}
+print(d["Michael"])
+d["Adam"] = 67
+print(d["Adam"])
+# 要避免key不存在的错误，有两种办法，一是通过in判断key是否存在：
+"THmas" in d
+# 二是通过dict提供的get()方法，如果key不存在，可以返回None，或者自己指定的value, 返回None的时候Python的交互环境不显示结果
+print(d.get("Tom"))
+print(d.get("Tom", 90))
+# 删除一个key, pop(key)
+d.pop("Adam")
+# 需要牢记的第一条就是dict的key必须是不可变对象
+# 因为dict根据key来计算value的存储位置，如果每次计算相同的key得出的结果不同，那dict内部就完全混乱了
+# set
+s = set([1,2,3])
+s.add(4)
+print(s)
+# 通过remove(key)方法可以删除元素：
+s.remove(1)
+print(s)
+s1 = set([1,2])
+s2 = set([2,3])
+print(s1 & s2)
+print(s1 | s2)
+
+
