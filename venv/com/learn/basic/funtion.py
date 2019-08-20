@@ -1,3 +1,4 @@
+import math
 # max
 print(max(1, 53, 4, 3))
 # 数据类型转换
@@ -9,7 +10,11 @@ a = abs
 print(a(-4))
 # define function
 # 在Python中，定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回
+
+
 def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError("bad operand type")
     if x >= 0:
         return x
     else:
@@ -27,3 +32,18 @@ if age >= 18:
     pass
 缺少了pass，代码运行就会有语法错误。
 """
+age = 29
+if age > 19:
+    pass
+
+# 返回多个值
+
+
+def move(x, y, step, angle=0):
+    nx = x + step * math.cos(angle)
+    ny = y - step * math.sin(angle)
+    return nx, ny
+
+
+t = move(100, 100, 60, math.pi / 6)
+print(t[0], t[1])
