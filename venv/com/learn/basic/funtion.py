@@ -67,8 +67,12 @@ def enroll(name, age=15, sex="man"):
     print("sex",sex)
 
 enroll("dingbin", 53,"woman")
+
+
 # 定义默认参数要牢记一点：默认参数必须指向不变对象！
 # https://www.liaoxuefeng.com/wiki/1016959663602400/1017261630425888
+
+
 # 可变参数
 # *nums表示把nums这个list的所有元素作为可变参数传进去。这种写法相当有用，而且很常见。
 def calc(*numbers):
@@ -76,4 +80,34 @@ def calc(*numbers):
     for n in numbers:
         sum = sum + n * n
     return sum
+
+
 print(calc(1, 2, 3))
+
+
+# 递归函数
+def fact(n):
+    if n <= 1:
+        return 1
+    else:
+        return n * fact(n - 1)
+
+
+print(fact(5))
+
+
+"""
+可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。请看示例：
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+"""
+def person(name, age, **kw):
+    print("name", name, "age", age, "kw", kw)
+
+# 111
+person("dingbin", 43, city="beijing", sex="man")
+# 222
+extra = {"city": "beijing", "job": "enginner", "sex": "man"}
+person("risken", 45, **extra)
+
+# 在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
